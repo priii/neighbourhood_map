@@ -20,6 +20,7 @@ function initMap(){
 
    var largeInfoWindow = new google.maps.InfoWindow();
    var bounds = new google.maps.LatLngBounds();
+   // this code is taken from  Google Maps API Course on Udacity
    // The following group uses the location array tocreate an array of markers on initialize.
    for(var i=0;i< locations.length; i++){
      // get the position from the location array.
