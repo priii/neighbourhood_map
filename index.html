@@ -11,12 +11,14 @@
   <div class= "container">
     <div class="options-box">
       <h3> Best Restaurants in Mountain View </h3>
+      <input placeholder="Search.." type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
       <ul data-bind="template: {name:'restaurant' , foreach:restaurants}"></ul>
       </div>
     <div id="map"></div>
   </div>
   <!-- to see the restaurants in the page-->
   <script src="knockout.js"></script>
+
   <script type="text/html" id="restaurant">
     <li>
       <strong data-bind ="text: name"></strong>

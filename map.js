@@ -5,17 +5,17 @@ var markers =[];
 function initMap(){
   //Constructor creates a new map- only center and zoom are required.
    map = new google.maps.Map(document.getElementById('map'),{
-     center: {lat: 37.386051, lng: -122.083855},
+     center: {lat: 37.386051, lng: 122.083855},
      zoom: 13
      });
 
    //These are the best restaurants in Mountain View that will be shown to the user.
    var locations = [
-     {title: 'orens hummus ', location: {lat: 37.3948, lng: 122.0787}},
-     {title: 'Taqueria La Espuela ', location: {lat: 37.3929, lng: 122.0803}},
-     {title: 'Niji Sushi ', location: {lat: 37.3922, lng: 122.0792}},
-     {title: 'Crepevine ', location: {lat: 37.3925, lng: 122.0800}},
-     {title: 'Xanh Restaurant ', location: {lat: 37.3949, lng: 122.0786}}
+     {title: 'orens hummus ', location: {lat: 37.3948, lng: -122.0787}},
+     {title: 'Taqueria La Espuela ', location: {lat: 37.3929, lng: -122.0803}},
+     {title: 'Niji Sushi ', location: {lat: 37.3922, lng: -122.0792}},
+     {title: 'Crepevine ', location: {lat: 37.3925, lng: -122.0800}},
+     {title: 'Xanh Restaurant ', location: {lat: 37.3949, lng: -122.0786}}
    ];
 
    var largeInfoWindow = new google.maps.InfoWindow();
