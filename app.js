@@ -25,18 +25,18 @@ var restaurants = [
 // followed the below demo for search method
 // http://opensoul.org/2011/06/23/live-search-with-knockoutjs/
 var viewModel = {
-  restaurants: ko.observableArray(restaurants)
-  query: ko.observable('')
-  search: function(value){
+  restaurants: ko.observableArray(restaurants),
+  query: ko.observable(''),
+  //search function
+  search: function(value) {
     //remove all the current restaurants, which removes from the view
     viewModel.restaurants.removeAll();
-
-    for(var x in restaurants){
+    for(var x in restaurants) {
       if(restaurants[x].name.toLowerCase().indexOf(value.toLowerCase()) >= 0){
-        viewModel.restaurants.push(restaurants[x]));
+        viewModel.restaurants.push(restaurants[x]);
       }
     }
   }
 };
-ko.applyBindings(viewModel);
 viewModel.query.subscribe(viewModel.search);
+ko.applyBindings(viewModel);
