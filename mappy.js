@@ -87,16 +87,18 @@ function populateInfoWindow(marker, infowindow) {
 function vm() {
   var self = this;
   self.query =  ko.observable('');
-  self.locations = ko.observableArray(restaurants);
-
-  //search function
+    //search function
   // followed the below demo for search method
   // http://opensoul.org/2011/06/23/live-search-with-knockoutjs/
 
   self.clicked = ko.computed(function(){
-    var query = self.query().toLowerCase();
-      return ko.utils.arrayFilter(restaurants, function(restaurant){
+        var query = self.query().toLowerCase();
+
+        return ko.utils.arrayFilter(restaurants, function(restaurant){
         return restaurant.name.toLowerCase().indexOf(query)>=0;
+        //var match = stringStartsWith(restaurant.name.toLowerCase(), query);
+        //restaurant.marker.setVisible(match);
+        //return match;
     });
 
   });
