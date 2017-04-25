@@ -11,24 +11,21 @@
   <div class= "container">
     <div class="options-box">
       <h3> Best Restaurants in Mountain View </h3>
+
       <input placeholder="Search.." type="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off">
-      <ul data-bind="template: {name:'restaurant' , foreach:restaurants}"></ul>
-      </div>
-    <div id="map"></div>
+      <ul data-bind="foreach: clicked">
+        <li>
+          <strong data-bind="text: name, click: $parent.showInfoWindow"></strong>
+          <span  data-bind="text: caption"></span>
+      </li>
+      </ul>
+    </div>
+    <!--<div id="map"></div>-->
+    <div id='map' "></div>
   </div>
-  <!-- to see the restaurants in the page-->
   <script src="knockout.js"></script>
-
-  <script type="text/html" id="restaurant">
-    <li>
-      <strong data-bind ="text: name"></strong>
-      <span data-bind="text: caption"></span>
-    </li>
-  </script>
-
-  <script src="app.js"></script>
-  <script src="map.js"></script>
-
+   <script src="mappy.js"></script>
+  <!-- <script src="map_knock.js"></script>-->
   <script async defer
       src=
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyAe9tVxpRYdUnht_8AMzAulPmrnt-GUcH8&v=3&callback=initMap">
