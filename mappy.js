@@ -158,6 +158,7 @@ function populateInfoWindow(marker, infowindow) {
 function vm() {
   var self = this;
   self.query =  ko.observable('');
+
   // copying the restaurants details into locations
   self.locations = ko.observableArray(restaurants);
 
@@ -170,13 +171,19 @@ function vm() {
        var query = self.query().toLowerCase();
        return ko.utils.arrayFilter(self.locations(),function(temp_var){
         var store = temp_var.name.toLowerCase().indexOf(query)>=0; // checks the each index of query's value and temp_var' value if bot matches it will return 0 if not it will return -1(false) nothing will show up!
-        console.log(temp_var.marker);
-        if (store){
+      //  var marker = temp_var.marker;
+        if(store === true){
+          //console.log(marker);
+          //console.log(temp_var.marker);
+            return store;
+
           temp_var.marker.setVisible(true);
+
         } else {
-          temp_var.marker.setVisible(false);
+           temp_var.marker.setVisible(false);
+            console.log(temp_var.marker);
         }
-        return store;
+
     });
   });
 
