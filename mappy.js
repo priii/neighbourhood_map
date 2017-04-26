@@ -251,15 +251,12 @@ function vm() {
           //console.log(marker);
           //console.log(temp_var.marker);
             return store;
-
-          temp_var.marker.setVisible(true);
-
+            temp_var.marker.setVisible(true);
         } else {
            temp_var.marker.setVisible(false);
             console.log(temp_var.marker);
         }
-
-    });
+      });
   });
 
   self.showInfoWindow = function(loc) {
