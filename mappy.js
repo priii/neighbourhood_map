@@ -247,6 +247,9 @@ function vm() {
        return ko.utils.arrayFilter(self.locations(),function(temp_var){
         var store = temp_var.name.toLowerCase().indexOf(query)>=0; // checks the each index of query's value and temp_var' value if bot matches it will return 0 if not it will return -1(false) nothing will show up!
       //  var marker = temp_var.marker;
+        if(temp_var.marker){
+          temp_var.marker.setVisible(true);
+        }
         if(store === true){
           //console.log(marker);
           //console.log(temp_var.marker);
