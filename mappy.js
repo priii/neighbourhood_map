@@ -40,7 +40,9 @@ function initMap(){
   //Constructor to create a new map.
   map = new google.maps.Map(document.getElementById('map'),{
     center: {lat: 37.386051, lng: -122.083855},
-    zoom: 10,
+    zoom: 16,
+    scaleControl: true,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
     mapTypeControl: false
   });
 
