@@ -1,5 +1,8 @@
+
 var map;
 var markers =[];
+var currentInfoWindow;
+
 // restaurant details
 
 var restaurants = [
@@ -25,16 +28,20 @@ var restaurants = [
  {
    name:"Xanh Restaurant",
    caption:": High-end Vietnamese dishes",
-   location: {lat: 37.3949, lng: -122.0786}
+   location: {lat: 37.394895, lng: -122.078572}
     }
 ];
 
+
+
 // // this code is taken from  Google Maps API Course on Udacity
+
 function initMap(){
   //Constructor to create a new map.
   map = new google.maps.Map(document.getElementById('map'),{
     center: {lat: 37.386051, lng: -122.083855},
-    zoom: 13
+    zoom: 10,
+    mapTypeControl: false
   });
 
   // Style the markers a bit. This will be our listing marker icon.
@@ -57,7 +64,6 @@ function initMap(){
       position: position,
       name: name,
       animation: google.maps.Animation.DROP,
-      icon: defaultIcon,
       id: i
     });
     var largeInfowindow = new google.maps.InfoWindow();
@@ -83,6 +89,9 @@ function initMap(){
 //extending the boundaries.
 map.fitBounds(bounds);
 }
+
+
+
 // This function populates the infowindow when the marker is clicked. We'll only allow
 // one infowindow which will open at the marker that is clicked, and populate based
 // on that markers position.
@@ -145,25 +154,30 @@ function populateInfoWindow(marker, infowindow) {
 
 
 // view model
+
 function vm() {
   var self = this;
   self.query =  ko.observable('');
-  //self.locations = ko.observableArray(restaurants);
+  // copying the restaurants details into locations
+  self.locations = ko.observableArray(restaurants);
 
   //search function
+
   // followed the below demo for search method
   // http://opensoul.org/2011/06/23/live-search-with-knockoutjs/
 
   self.clicked = ko.computed(function(){
-        var query = self.query().toLowerCase();
-
-        return ko.utils.arrayFilter(restaurants, function(restaurant){
-        return restaurant.name.toLowerCase().indexOf(query)>=0;
-        //var match = stringStartsWith(restaurant.name.toLowerCase(), query);
-        //restaurant.marker.setVisible(match);
-        //return match;
+       var query = self.query().toLowerCase();
+       return ko.utils.arrayFilter(self.locations(),function(temp_var){
+        var store = temp_var.name.toLowerCase().indexOf(query)>=0; // checks the each index of query's value and temp_var' value if bot matches it will return 0 if not it will return -1(false) nothing will show up!
+        console.log(temp_var.marker);
+        if (store){
+          temp_var.marker.setVisible(true);
+        } else {
+          temp_var.marker.setVisible(false);
+        }
+        return store;
     });
-
   });
 
   self.showInfoWindow = function(loc) {
