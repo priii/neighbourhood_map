@@ -319,14 +319,13 @@ function vm() {
         var query = self.query().toLowerCase();
         return ko.utils.arrayFilter(self.locations(), function(temp_var) {
             var store = temp_var.name.toLowerCase().indexOf(query) >= 0; // checks the each index of query's value and temp_var' value if both matches it will return 0 if not it will return -1(false) nothing will show up!
-            //  var marker = temp_var.marker;
+
             if (temp_var.marker) {
                 temp_var.marker.setVisible(true);
             }
             if (store === true) {
-                //console.log(temp_var.marker);
                 return store;
-                temp_var.marker.setVisible(true);
+                //  temp_var.marker.setVisible(true);
             } else {
                 temp_var.marker.setVisible(false);
             }
@@ -338,4 +337,4 @@ function vm() {
         google.maps.event.trigger(loc.marker, 'click');
     };
 }
-ko.applyBindings(new vm);
+ko.applyBindings(new vm());
