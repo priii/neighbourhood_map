@@ -53,7 +53,7 @@ var restaurants = [{
 
 // google map error handling
 
-function googleError() {
+function mapError() {
     alert('Oops, google maps is not available.');
 }
 
@@ -303,7 +303,7 @@ function makeMarkerIcon(markerColor) {
 
 // view model
 
-function vm() {
+function ViewModel() {
     var self = this;
     self.query = ko.observable('');
 
@@ -337,4 +337,4 @@ function vm() {
         google.maps.event.trigger(loc.marker, 'click');
     };
 }
-ko.applyBindings(new vm());
+ko.applyBindings(new ViewModel());
