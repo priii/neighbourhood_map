@@ -1,6 +1,6 @@
 var map;
 var markers = [];
-var currentInfoWindow;
+
 
 // Array that contains restaurant details
 // venue id taken from fourSquare
