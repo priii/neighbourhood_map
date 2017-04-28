@@ -229,6 +229,7 @@ function populateInfoWindow(marker, infowindow) {
                 }
                 venue_id = restaurants[rest_idx].venue_id; // passing the index value
 
+                // api request refered from minicourse-ajax project from udacity
                 // FourSquare api request
                 // getting 3 tips texts from the foursquare api
 
